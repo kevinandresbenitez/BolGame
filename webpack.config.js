@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 
 module.exports = {
   entry: './src/index.ts',
@@ -33,5 +34,8 @@ module.exports = {
   },
 
 
-  plugins: [new HtmlWebpackPlugin({title:"Three js Proyect",filename:'index.html'})],
+  plugins: [
+    new HtmlWebpackPlugin({title:"Three js Proyect",filename:'index.html'}),
+    new NodePolyfillPlugin()
+  ],
 };
