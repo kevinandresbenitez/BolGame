@@ -33,6 +33,9 @@ module.exports = {
     ],
   },
 
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
 
   plugins: [
     new HtmlWebpackPlugin({title:"Three js Proyect",filename:'index.html'}),
