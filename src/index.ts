@@ -1,3 +1,5 @@
-import { Entityes } from "./Entityes/AbstractEntitye";
+import { LevelLoader } from "./LevelLoader/LevelLoader";
+import './Public/less/index.less'
 
-console.log(new Entityes(true))
+
+new LevelLoader().loadLevel(1)
