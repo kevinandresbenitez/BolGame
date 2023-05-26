@@ -2,8 +2,6 @@ import {direction,position} from '../DateTypes/index'
 
 interface Entityes{
     position:position,
-    direction:direction,
-    canUpdateLogic:boolean,
     width:number,
     height:number,
     draw(CanvasContext:CanvasRenderingContext2D):void,
@@ -11,4 +9,11 @@ interface Entityes{
     updateLogic():void
 }
 
-export {Entityes}
+interface EntityesMoviment{
+    direction:direction,
+    velosity:number,
+    updatePosition():void,
+}
+
+
+export {Entityes,EntityesMoviment}

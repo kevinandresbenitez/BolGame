@@ -3,17 +3,13 @@ import {direction,position} from '../../Utils/DateTypes/index'
 import {AbstractEntityes} from '../AbstractEntitye'
 import { LevelLoader } from '../../LevelLoader/LevelLoader';
 
-export class AbstractBall extends AbstractEntityes{
-    direction:direction;
-    velosity:number;
+export class AbstractBall extends AbstractEntityes{    
     radius:number;
     levelLoaderManajer:LevelLoader
 
-    constructor(width:number,height:number,radius:number,position:position,velosity:number,direction:direction){
-        super(true,width,height,position);
+    constructor(width:number,height:number,radius:number,position:position){
+        super(width,height,position);
         this.radius = radius;
-        this.velosity = velosity;
-        this.direction = direction;
         this.levelLoaderManajer = new LevelLoader();
     }
 
@@ -26,7 +22,5 @@ export class AbstractBall extends AbstractEntityes{
         CanvasContext.fill();
     }
 
-    remove():void{
-        // Defined in class
-    }
+
 }

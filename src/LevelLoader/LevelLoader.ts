@@ -1,9 +1,8 @@
 import { ControlPlataform } from "./ControlPlataform";
-import { Entityes } from "../Utils/Interfaces/Entityes";
+import { Entityes} from "../Utils/Interfaces/Entityes";
 import { LevelUtils } from "../Utils/LevelUtils";
 import { CanvasManager } from "./Canvas";
 import { RendererManager } from "./Renderer";
-import { NormalBall } from "../Entityes/Balls/NormalBall";
 
 export class LevelLoader{
     renderManager : RendererManager
@@ -51,10 +50,8 @@ export class LevelLoader{
         },
         updateLogic:()=>{
             if(this.entityesPool){
-                this.entityesPool.forEach((entitye:Entityes)=>{
-                    if(entitye.canUpdateLogic){
-                        entitye.updateLogic();
-                    }
+                this.entityesPool.forEach((entitye:Entityes)=>{                    
+                    entitye.updateLogic();                    
                 })
             }
         },
