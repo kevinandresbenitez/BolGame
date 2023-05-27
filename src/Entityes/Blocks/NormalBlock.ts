@@ -7,4 +7,5 @@ export class NormalBlock extends AbstractBlock implements Entityes{
         this.remove()
     }
 
+    updateLogic(){}
 }
