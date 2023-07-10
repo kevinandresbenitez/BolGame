@@ -3,7 +3,8 @@ import { Entityes } from "./Interfaces/Entityes"
 
 export class CollisionUtils{
     static getAxisCollision=(object1:Entityes,object2:Entityes):collisionAxis=>{
-        if(objectCollisionFunctions.collisionBlockRight(object1,object2) ||objectCollisionFunctions.collisionBlockLeft(object1,object2)){    
+        //get Axis collision
+        if(objectCollisionFunctions.collisionAxisX(object1,object2)){
             return 'x'
         }else{
             return 'y'
@@ -11,9 +12,8 @@ export class CollisionUtils{
     }
 
     static entityesCollide=(object1:Entityes,object2:Entityes):boolean=>{
+        //Verify if Entityes collision
         return (objectCollisionFunctions.collisionAxisY(object1,object2) || objectCollisionFunctions.collisionAxisX(object1,object2)) 
-       // || objectCollisionFunctions.collisionBlockTop(object1,object2)||objectCollisionFunctions.collisionBlockRight(object1,object2) ||objectCollisionFunctions.collisionBlockLeft(object1,object2))
-        
     }
 
 

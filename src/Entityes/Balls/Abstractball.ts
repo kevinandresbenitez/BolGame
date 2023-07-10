@@ -15,7 +15,6 @@ export class AbstractBall extends AbstractEntityes{
         this.radius = radius;
         this.direction = direction;
         this.velosity = velosity;
-        this.levelLoaderManajer = new LevelLoader();
     }
 
 

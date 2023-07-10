@@ -3,10 +3,12 @@ import { Entityes} from "../Utils/Interfaces/Entityes";
 import { LevelUtils } from "../Utils/LevelUtils";
 import { CanvasManager } from "./Canvas";
 import { RendererManager } from "./Renderer";
+import { GameStatusManager } from "./GameStatus";
 
 export class LevelLoader{
     renderManager : RendererManager
     canvasManager : CanvasManager
+    gameStatusManager:GameStatusManager
     controlPlataform:ControlPlataform
     entityesPool:Array<Entityes>
     levelNumber : number
@@ -22,6 +24,7 @@ export class LevelLoader{
         // Set managers
         this.renderManager = new RendererManager();
         this.canvasManager = new CanvasManager();
+        this.gameStatusManager = new GameStatusManager();
     }
 
     loadLevel = (level:number):void=>{
@@ -36,6 +39,17 @@ export class LevelLoader{
         
         this.canvasManager.create();
         this.renderManager.startRender();
+    }
+
+    loadOneFrame =():void=>{
+        this.entityes.updateLogic();
+        this.entityes.draw(this.canvasManager.getContext());
+
+        if(this.gameStatusManager.isGameWin() || this.gameStatusManager.isGameOver()){
+            this.renderManager.stopRender();
+            console.log('Game is End');
+        }
+
     }
 
     entityes = {

@@ -10,11 +10,9 @@ export class RendererManager{
     }
 
     stopRender = ()=>{
-        if(this.RenderFrames){
-            window.cancelAnimationFrame(this.RequestAnimationFrame);
-            this.RequestAnimationFrame = false;
-            this.isRunFrame = false;
-        }
+        window.cancelAnimationFrame(this.RequestAnimationFrame);
+        this.RequestAnimationFrame = false;
+        this.isRunFrame = false;
     }
     startRender = ()=>{
         if(!this.isRunFrame){
@@ -24,9 +22,8 @@ export class RendererManager{
     }
 
     RenderFrames = ()=>{
-        this.levelLoaderManager.entityes.updateLogic();
-        this.levelLoaderManager.entityes.draw(this.levelLoaderManager.canvasManager.getContext());
         this.RequestAnimationFrame = window.requestAnimationFrame(this.RenderFrames);
+        this.levelLoaderManager.loadOneFrame();
     }
 
 }

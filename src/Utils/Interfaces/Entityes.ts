@@ -6,14 +6,9 @@ interface Entityes{
     height:number,
     draw(CanvasContext:CanvasRenderingContext2D):void,
     remove():void,
-    updateLogic():void
-}
-
-interface EntityesMoviment{
-    direction:direction,
-    velosity:number,
-    updatePosition():void,
+    updateLogic():void,
+    action(arg:Entityes):void
 }
 
 
-export {Entityes,EntityesMoviment}
+export {Entityes}
